@@ -30,6 +30,11 @@ class _HomeScreenState extends State<HomeScreen> {
         } else {
           nextPage++;
         }
+        pageController.animateToPage(
+          nextPage,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.ease,
+        );
       }
     );
   }
