@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
         // 4 가운데 정렬
         centerTitle: true,
       ),
-      body: Text('Home Screen'),
+      body: 
     );
   }
 }
