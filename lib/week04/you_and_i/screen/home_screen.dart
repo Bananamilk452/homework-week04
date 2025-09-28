@@ -34,11 +34,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void onHeartPressed() {
-    
+
   }
 }
 
 class _DDay extends StatelessWidget {
+  _DDay({
+    required this.onHeartPressed; // 2 상위에서 함수 입력받기
+  });
+
   @override
   Widget build(BuildContext context) {
   // 1 테마 불러오기
