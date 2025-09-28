@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
+import 'dart:async'; // 1 async 패키지 불러오기
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,6 +11,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final PageController pageController = PageController();
+
+  @override
+  void initState() {
+    super.initState(); // 3 부모 initState() 실행
+
+    Timer.periodic(
+      Duration(seconds: 3),
+      (timer) {
+
+      }
+    )
+  }
+
   @override
   Widget build(BuildContext context) {
     // 1 상태바 색상 변경
@@ -24,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       body: PageView( // 1 PageView 추가
+        controller: pageController,
         children: [1, 2, 3, 4, 5] // 2 샘플 리스트 생성
             .map( // 3 위젯으로 매핑
         (number) => Image.asset(
