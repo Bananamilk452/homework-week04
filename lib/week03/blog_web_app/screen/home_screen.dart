@@ -28,6 +28,23 @@ class HomeScreen extends StatelessWidget {
 
         // 4 가운데 정렬
         centerTitle: true,
+
+        // 1 AppBar에 액션 버튼을 추가할 수 있는 매개변수
+        actions: [
+          IconButton(
+
+            // 2 아이콘을 눌렀을 때 실행할 콜백 함수
+            onPressed: () {
+              // 3 웹뷰 위젯에서 사이트 전환하기
+              webViewController.loadRequest(Uri.parse('https://blog.codefactory.ai'));
+            },
+
+            // 4 홈 버튼 아이콘 설정
+            icon: Icon(
+              Icons.home
+            )
+          )
+        ],
       ),
       body: WebViewWidget(
         controller: webViewController,
