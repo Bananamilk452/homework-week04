@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: WebViewWidget(
-        controller: webviewController,
+        controller: webViewController,
       )
     );
   }
