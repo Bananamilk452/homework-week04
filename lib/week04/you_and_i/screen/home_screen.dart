@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class _DDay extends StatelessWidget {
   // 1 하트 눌렀을 때 실행할 함수
   final GestureTapCallback onHeartPressed;
-  final DateTime firstDay // 1 사귀기 시작한 날
+  final DateTime firstDay; // 1 사귀기 시작한 날
 
   _DDay({
     required this.onHeartPressed, // 2 상위에서 함수 입력받기
@@ -84,7 +84,8 @@ class _DDay extends StatelessWidget {
         const SizedBox(height: 16.0),
         Text( // 만난 후 DDay
           // 5 DDay 계산하기
-          'D+365',
+          'D+${DateTime(now.year, now.month,
+                now.day).difference(firstDay).inDays + 1}',
           // headline2 스타일 적용
           style: textTheme.headlineMedium
         )
