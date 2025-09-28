@@ -24,7 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             _DDay(
-              onHeartPressed: onHeartPressed
+              onHeartPressed: onHeartPressed,
+              firstDay: firstDay
             ),
             _CoupleImage()
           ],
@@ -41,15 +42,18 @@ class _HomeScreenState extends State<HomeScreen> {
 class _DDay extends StatelessWidget {
   // 1 하트 눌렀을 때 실행할 함수
   final GestureTapCallback onHeartPressed;
+  final DateTime firstDay // 1 사귀기 시작한 날
 
   _DDay({
-    required this.onHeartPressed // 2 상위에서 함수 입력받기
+    required this.onHeartPressed, // 2 상위에서 함수 입력받기
+    required this.firstDay // 2 날짜 변수로 입력받기
   });
 
   @override
   Widget build(BuildContext context) {
   // 1 테마 불러오기
   final textTheme = Theme.of(context).textTheme;
+  final now = DateTime.now(); // 3 현재 날짜시간
 
     return Column(
       children: [
