@@ -20,9 +20,18 @@ class _HomeScreenState extends State<HomeScreen> {
     Timer.periodic(
       Duration(seconds: 3),
       (timer) {
+        int? nextPage = pageController.page?.toInt();
 
+        if (nextPage == null) {
+          return;
+        }
+        if (nextPage == 4) {
+          nextPage = 0;
+        } else {
+          nextPage++;
+        }
       }
-    )
+    );
   }
 
   @override
