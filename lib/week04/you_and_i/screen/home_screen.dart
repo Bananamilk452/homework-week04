@@ -67,7 +67,7 @@ class _DDay extends StatelessWidget {
         const SizedBox(height: 16.0),
         IconButton( // 하트 아이콘 버튼
           iconSize: 60.0,
-          onPressed: () {},
+          onPressed: onHeartPressed, // 3 아이콘 눌렀을 떄 실행할 함수
           icon: Icon(
             Icons.favorite,
             color: Colors.red, // 2 색상 빨강으로 변경
