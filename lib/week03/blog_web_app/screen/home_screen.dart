@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 
+// 1 웹뷰 플러그인 불러오기
+import 'package:webview_flutter/webview_flutter.dart';
 class HomeScreen extends StatelessWidget {
-  
+  // 1 WebViewController 선언
+  WebViewController webViewController = WebViewController()
 
-  // 1 const 생성자
-  const HomeScreen({Key? key}) : super(key: key);
+  // 2 WebViewController의 loadRequest() 함수를 실행합니다.
+  ..loadRequest(Uri.parse('https://blog.codefactory.ai'))
+
+  // 3 Javascript가 제한 없이 실행될 수 있도록 합니다.
+  ..setJavaScriptMode(JavaScriptMode.unrestricted);
+
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +29,9 @@ class HomeScreen extends StatelessWidget {
         // 4 가운데 정렬
         centerTitle: true,
       ),
-      body: 
+      body: WebViewWidget(
+        controller: webviewController,
+      )
     );
   }
 }
